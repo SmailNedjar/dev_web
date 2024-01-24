@@ -1,0 +1,13 @@
+@import '_variable.scss';
+$primary: rgba(213, 19, 19, 0.5);
+@import "../bootstrap/node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+    background-color: antiquewhite;
+    
+}
+.btn2 {
+    border-radius: $enable-rounded;
+    background-color: $primary;
+}
+
