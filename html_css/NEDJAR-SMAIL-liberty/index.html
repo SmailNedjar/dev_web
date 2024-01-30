@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liberty</title>
+    <link rel="stylesheet" href="style/reboot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    
+</head>
+<body>
+    <header class="container_header">
+        <h1 class="logo" >Liberty</h1>
+        <button class="bouton_menu" onclick="toggleMenu()"><svg  class="image_burger_bouton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
+        <nav class="menu_navigation menu_hidden">
+            <ul class="container_navigation">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#our-works">Our works</a></li>
+                <li><a href="#pricing-table">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="hero" id="hero">
+            <img src="imgs/logo.png" alt="">
+            <h2>hello we are liberty <br>we do amazing things every day</h2>
+            <button onclick="window.location.href = '#contact'">contact us</button>
+        </div>
+        <div class="container_central" id="our-works">
+            <div class="our_work">
+                <div class="title_item">
+                    <h2>our works</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum totam quis consequatur, cum perferendis in natus</p>
+                </div>
+                <div class="portfolio">
+                    <div>
+                        <img src="imgs/project-1.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="imgs/project-2.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="imgs/project-3.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="imgs/project-4.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="imgs/project-5.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="imgs/project-6.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="imgs/project-7.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="imgs/project-8.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="pricing_table" id="pricing-table">
+                <div class="title_item">
+                    <h2>pricing table</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quod praesentium recusandae eligendi sequi rerum cum sit</p>
+                </div>
+                <div class="cadre">
+                    <div class="cadre_item">
+                        <div class="cadre_title">
+                            <h3>bronze</h3>
+                            <p>$5 / month</p>
+                        </div>
+                        <div>
+                            <ul class="liste_proprity">
+                                <li>1 account</li>
+                                <li>1 project</li>
+                                <li>50k api access</li>
+                                <li>50MB storage</li>
+                                <li>custom cloud service</li>
+                                <li>weekly report</li>
+                            </ul>
+                            <button class="button_signup">
+                                sign up now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cadre_item">
+                        <div class="cadre_title">
+                            <h3>silver</h3>
+                            <p>$10 / month</p>
+                        </div>
+                        <div>
+                            <ul class="liste_proprity">
+                                <li>3 account</li>
+                                <li>3 project</li>
+                                <li>100k api access</li>
+                                <li>100MB storage</li>
+                                <li>custom cloud service</li>
+                                <li>weekly report</li>
+                            </ul>
+                            <button class="button_signup">sign up now</button>
+                        </div>
+                    </div>
+                    <div class="cadre_item">
+                        <div class="cadre_title">
+                            <h3>gold</h3>
+                            <p>$20 / month</p> 
+                        </div>
+                        <div>
+                            <ul class="liste_proprity">
+                                <li>2 account</li>
+                                <li>2 project</li>
+                                <li>100k api access</li>
+                                <li>200MB storage</li>
+                                <li>custom cloud service</li>
+                                <li>weekly report</li>
+                            </ul>
+                            <button class="button_signup">sign up now</button>
+                        </div>
+                    </div>
+                    <div class="cadre_item">
+                        <div class="cadre_title">
+                            <h3>diamond</h3>
+                            <p>$35 / month</p>
+                        </div>
+                        <div>
+                            <ul class="liste_proprity">
+                                <li>5 account</li>
+                                <li>20 project</li>
+                                <li>300k api access</li>
+                                <li>5 account</li>
+                                <li>20 project</li>
+                                <li>weekly report</li>
+                            </ul>
+                            <button class="button_signup">sign up now</button>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>
+        <div class="contact" id="contact">
+            <div class="container_contact">
+                <div class="title_item">
+                    <h2>contact us</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quod praesentium recusandae eligendi sequi rerum cum sit</p>
+                </div>
+                <form action="contact.php" method="post">
+                    <div class="message">
+                        <textarea placeholder="Message" name="message"></textarea>
+                        <label for="message" ></label>
+                    </div>
+                    <div class="name_email">
+                        <input type="text" placeholder="Name" name="name">
+                        <label for="name"></label>
+
+                        <input type="email" placeholder="Email" name="email">
+                        <label for="email"></label>
+
+                        <div class="liste_deroulante_submit">
+                            <select class="liste_deroulante" name="option_liste" id="option">
+                                <option value="service" select="selected" >Service</option>
+                                <option value="bien">Bien</option>
+                            </select>
+                            <label for="option_liste"></label>
+
+                            <input type="submit" value="SEND">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="container_bouton_retour">
+            <a href="#hero" class="bouton_retour_haut"><img src="imgs/back-to-top.svg" alt=""></a>
+        </div>
+        <div class="texte_footer">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.<br> Iste, voluptas?Harum commodi sit modi, a sapiente </p>
+        </div>
+        <div class="container_reseau_sociaux">
+            <ul>
+                <li><a href="https://www.facebook.com"><img src="imgs/facebook.svg" alt=""></a></li>
+                <li><a href="https://www.youtube.fr"> <img src="imgs/youtube.svg" alt=""></a></li>
+                <li><a href="https://www.instagram.com"><img src="imgs/instagram.svg" alt=""></a></li>
+            </ul>
+        </div>
+        </footer>
+        <script src="script/script.js" defer></script>
+    </footer>
+</body>
+</html>

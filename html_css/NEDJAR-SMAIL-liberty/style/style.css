@@ -1,0 +1,502 @@
+@font-face {
+    font-family: 'Pontiac';
+    font-weight: 300;
+    font-style: normal;
+    src: url('fonts/pontiac-light.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Pontiac';
+    font-weight: 500;
+    font-style: normal;
+    src: url('/fonts/pontiac-regular.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Pontiac';
+    font-weight: 700;
+    font-style: normal;
+    src: url('/fonts/pontiac-bold.otf') format('opentype');
+  }
+  @font-face {
+    font-family: 'Pontiac';
+    font-weight: 900;
+    font-style: normal;
+    src: url('/fonts/pontiac-black.otf') format('opentype');
+  }
+
+
+/* definition de lq typographie, de la largeur de la page et du centrage de cette page */  
+body {
+    font-family: Arial, Helvetica; 
+    max-width: 1170px;
+    width: 100%;
+    margin: auto;
+}
+
+/* police de caractere des titres de differents niveaux */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Pontiac;
+    font-weight: 900;
+}
+
+.logo {
+    font-size:  36px;
+    letter-spacing : -0.2px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* configuration de la barre rouge du haut avec une flexbox 
+et ajustement de l'espace entre ses differents contenu + centrage vertical.*/
+.container_header {
+    width:100%;
+    box-sizing: border-box;
+    height: 68px;
+    padding: 11px 42px;
+    background: #E74C3C;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+}
+
+/* mise en forme des liens de la navigation */
+.container_header  a {
+    color: #fff;
+    font-size: 18px;
+    font-family: Arial,Helvetica;
+    text-decoration: none;
+    text-transform: uppercase;  
+}
+
+/* reaction des liens de navigation lors de leur survol (surlignage) */
+.container_header a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+.menu_navigation ul{
+    list-style-type: none;
+    line-height: 50px;
+    text-align: center;
+    padding-left: 0;
+}
+
+/* menu navigation sur une couleur de fond rouge sur mobile. 
+position absolue pour le positionner par rapport au header qui est en relative et le mettre 
+juste en dessous. et pour lui mettre un z-index pour etre en dessous (deuxieme plan) 
+du h1 et du bouton burger*/
+.menu_navigation {
+    position: absolute;
+    top:66px;
+    width:100%;
+    background-color: #E74C3C;
+    opacity: 1;
+    right: 0;
+    z-index: 0;
+}
+
+/* mise en forme du boutton du menu de navigation et ajustement 
+de sa position au dessus du menu de navigation mobile et tablette, avec un z index*/
+.bouton_menu {
+    display: flex;
+    align-items: center;
+    background-color:transparent;
+    position: relative;
+    z-index: 2;
+    width: 32px;
+    border: 0;
+    fill:#fff;
+}
+
+/* boutton menu navigation qui reagit au survol au focus et quand il est actif, avec l'ajout d'une bordure*/
+.bouton_menu:hover,
+.bouton_menu:focus,
+.bouton_menu:active {
+    border:1px solid #fff;
+    outline:0px;
+}
+
+/* style de la class qui disparait et reapparait grace au javascript 
+pour permettre l'ouverture et la fermeture du menu burger. ajout d'une 
+transition sur les styles pour permettre un effet plus doux sur les ecrans inferieur à 767px*/
+@media screen and (max-width:767px){
+    .menu_hidden {
+        top:-300px;
+        opacity: 0.5;           
+    } 
+
+    .menu_navigation {
+        transition: all 1s ease-in-out;
+    }
+}
+
+/* configuration du style du menu de navigation (aligement horizontal de a liste de lien avec une flexbox)
+sur les ecrans superieur à 767px. desactivation du boutton burger sur ecran superieur à 767px*/
+@media screen and (min-width: 768px){
+    
+    .menu_navigation ul{
+        display: flex;
+        gap:20px;
+        line-height: initial;
+        margin: 0;
+    }
+    .menu_navigation {
+        position: relative;
+        top: 0;
+        width: initial;
+    }
+    .bouton_menu {
+        display: none;
+    }
+}
+
+
+/* fixer une image en arriere plan de l'element ayant pour class hero pour
+permettre une superposition d'autres element. ajout d'une hauteur minimum et maximum.
+utilisatioon de display flex pour aligner verticalement les elements qui se superpose à l'image */
+.hero {
+    background: url(../imgs/hero-image.jpg) no-repeat;
+    min-height: 832px;
+    max-height: calc(100vh - 68px);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+
+.hero img {
+    margin-bottom: 60px;
+
+
+}
+
+/* definition de la heuteur de ligne du texte du titre de niveau 2,
+sont alignement, de sa couleur, de l'espace entre les lettres, et de
+la taille de police */
+.hero h2 {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    margin-top: 0;
+    font-weight: 300;
+    font-size: 54px;
+    letter-spacing: -.5px;
+    text-align: center;
+    line-height: 70px;
+}
+
+/* style du bouton de contact rouge */
+.hero button {
+    background: #E74C3C;
+    border: 0;
+    font-size: 18px;
+    font-family: Arial, Helvetica ;
+    padding-inline:100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+
+.our_work {
+    margin-top:120px;
+}
+
+/* mise en forme de la class title_item commune à different element ( ours works, pricing table, contatc us) */
+.title_item {
+    margin-bottom: 90px;
+    text-align: center;
+ }
+
+ /* pareil que au dessus mais pour le titre de niveau 2*/
+.title_item h2 {
+    font-size: 48px;
+    color:#4D5C6B;
+    letter-spacing: -0.7px;
+    text-transform: uppercase;
+    font-weight: 300;
+    line-height: 62px;
+}
+
+/* puis pour le paragraphe (ajustement du style) des elements possedant la class title_item*/
+.title_item p {
+    font-weight: bold;
+    font-family: Arial,Helvetica;
+    color: #ABABAB;
+    width: 500px;
+    margin: auto;
+}
+/* ajustement de la positions des photos en ligne et au centre avec une flexbox et une autorisation de retour 
+à la ligne avec un flex wrap */
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    gap:18.3px;
+    justify-content: center;
+}
+
+/* fixation de la largeur de chaque conteneur d'une image */
+.portfolio div {
+    width: 270px;
+}
+
+/* definition d'un container central de largeur inferieur au body, puis centré*/
+.container_central {
+    width: 97%;
+    margin: auto;
+}
+
+/* separation (espace) de la section pricing table de la precedente section, de 120px */
+.pricing_table  {
+    margin-top: 120px;
+}
+
+/* flexbox sur le cadre principal du pricing table aligner horizontalement ses enfants et pour 
+les centrer et leur donner la posibilité de retourner à la ligne. ajout d'un gap pour separer chaque item contenu dans cadre*/
+.pricing_table .cadre {
+    display:flex;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+    gap:18.3px;
+}
+
+/*chaque cadre_item de l'element paren cadre se voit fixé une largeur de 270px */
+.pricing_table .cadre .cadre_item {
+    width: 270px;
+    border : 1px solid #D5D5D5;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    
+}
+
+/* dans chaque cadre_item il y a une liste dont je reinitialise le padding*/
+.liste_proprity {
+    padding: 0;
+    list-style-type: none;
+}
+
+/* le titre de niveau 3 de chaque cadre_item est mis ne forme*/
+.pricing_table .cadre_item h3 {
+   font-size: 36px;
+   line-height: 47px;
+   color: #444444;
+   letter-spacing: -.70px;
+   font-weight: 300;
+   margin-bottom: 0;
+
+}
+
+/* de meme pour le paragraphe sous le titre de niveau 3 du cadre_item */
+.pricing_table .cadre p {
+font-family: Arial,Helvetica;
+font-weight: bold;
+font-size: 16px;
+line-height: 24px;    
+color: #444444;
+margin: 0;
+}
+
+/*passage des li de la iste des cadres_item en block de ligne pour permettre de leur donner une largeur et un padding */
+.pricing_table .cadre .liste_proprity li{
+    line-height: 24px;
+    width: 80%;
+    border-bottom: 1px solid #D5D5D5;
+    display: inline-block;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+/* le style du boutton de pricing_table est personnalisé */
+.button_signup {
+    font-family:Arial, Helvetica;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #fff;
+    border: 0;
+    padding: 10px;
+    padding-inline: 20px;
+    border-radius: 5px;
+}
+
+.cadre_title {
+    padding: 25px 0 25px 0;
+    border-bottom: 1px solid  #D5D5D5;
+}
+
+.cadre_title h3::first-letter {
+    text-transform: uppercase;
+}
+
+/* les boutons des cadres_items 1, 2, 4 ont une couleur de fond differente du reste */
+.cadre .cadre_item:nth-of-type(1) .button_signup,
+.cadre .cadre_item:nth-of-type(2) .button_signup,
+.cadre .cadre_item:nth-of-type(4) .button_signup { 
+    background-color: #2C3E50; 
+}
+
+/* le bouton 3 des cadres_items a une couleur de fond differente du reste*/
+.cadre .cadre_item:nth-of-type(3) .button_signup {
+    background-color: #3498DB;
+}
+
+/* je donne une couleu de bordure au seul cadre_item numero 3*/
+.cadre .cadre_item:nth-of-type(3) {
+    border: 1px solid #3498DB;
+}
+
+/* definition de la couleur d'arriere plan du cadre_tilte du cadre_item 3 seulement*/
+.cadre .cadre_item:nth-of-type(3) .cadre_title{
+    background-color: #3498DB;
+}
+
+/* definition de la couleur d'arriere plan du cadre_tilte du cadre_item 2 et 4 seulement avec  une autre couleur*/
+.cadre .cadre_item:nth-of-type(2) .cadre_title,
+.cadre .cadre_item:nth-of-type(4) .cadre_title{
+    background-color: #D5D5D5;
+}
+
+/* changement de  la couleur des textes (titre et paragraphe) du cadre_title du cadre_item 3 */
+.cadre .cadre_item:nth-of-type(3) .cadre_title h3,
+.cadre .cadre_item:nth-of-type(3) .cadre_title p {
+    color: #fff;
+}
+
+/* changement de couleur du bouton signup a son survol  du cadre_item 3*/
+.cadre .cadre_item:nth-of-type(3) .button_signup:hover {
+    background-color:#48ADF0;   
+}
+
+/* meme chose pour les autres cadre_item avec changement du bouton avec une autre couleur au survol*/
+.cadre .cadre_item:nth-of-type(1) .button_signup:hover,
+.cadre .cadre_item:nth-of-type(2) .button_signup:hover,
+.cadre .cadre_item:nth-of-type(4) .button_signup:hover { 
+    background-color:#3498DB;
+}
+
+.contact {
+    margin-top: 120px;
+    width: 100%;
+    background-color:#2C3E50;
+}
+
+.container_contact {
+    margin: auto;
+    padding-top: 90px;
+    width: 97%;
+    padding-bottom: 90px;
+}
+
+.container_contact .title_item h2{
+    color:#fff
+}
+
+.container_contact .title_item p {
+    color: #ABABAB;
+}
+
+/* mise en forme de la zone de message dans le contact avec l'option qui empeche de redimensionnement de la zone de texte*/
+textarea {
+    height: 200px;
+    width: 100%;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* alignement en horizontal avec une flexbox du contenu du formulaire de contact*/
+form {
+    display: flex;
+    gap:20px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ABABAB;
+    
+}
+
+/* largeur de 50% pour le conteneur de la zone de message du formulaire*/
+.message {
+    width: 50%;
+}
+
+/* et 50% de largeur pour le reste du formulaire de contact (email, nom). 
+utilisation d'une flexbox pour aligner verticalement les elements qui sont 
+dans l'element qui contient cette class*/
+.name_email {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* je donne une hauteur a chaque champ de saisie du formulaire de contact, sauf le textarea */
+.name_email  input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 17px;
+    border-radius: 5px;
+}
+
+.liste_deroulante {
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.liste_deroulante_submit {
+    display: flex;
+    gap: 20px;
+}
+
+/*personnalisation du style du bouton submit du formulaire de contact*/
+input[type="submit"] {
+    width: 20%;
+    background-color: #E74C3C;
+    color: #fff;
+    border: 0;
+}
+/* flexbox pour aligner verticalement les elements su footer*/
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+/* passage de la liste en bloque de ligne pour les aligner horizontalement*/
+.container_reseau_sociaux li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+/* position relative du conteneur du lien contenant la fleche pour permettre à la fleche d'etre en position absolue par rapport à lui*/
+.container_bouton_retour {
+    position: relative;
+    width: 54px;
+    height: 54px;
+}
+
+/**position absolue du lien contenant l'image de la fleche par rapport à l'element ayant pour class container_bouton_retour*/
+.container_bouton_retour a {
+    position: absolute;
+    top:-30px;
+    width: 100%;
+}
+
+.texte_footer {
+    text-align: center;
+}
+
+.container_reseau_sociaux ul {
+    padding: 0;
+}
