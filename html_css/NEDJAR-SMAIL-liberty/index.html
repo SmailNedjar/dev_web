@@ -1,32 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>liberty</title>
+    <title>Site Web societe liberty</title>
     <link rel="stylesheet" href="style/reboot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="style/style.css">
-    
+    <link rel="stylesheet" href="style/style.css"> 
 </head>
 <body>
     <header class="container_header">
-        <h1 class="logo" >Liberty</h1>
-        <button class="bouton_menu" onclick="toggleMenu()"><svg  class="image_burger_bouton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></button>
+        <h1 class="logo">Liberty</h1>
+        <button class="bouton_menu" onclick="toggleMenu()">
+            <svg  class="image_burger_bouton" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+            </svg>
+        </button>
         <nav class="menu_navigation menu_hidden">
             <ul class="container_navigation">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#our-works">Our works</a></li>
-                <li><a href="#pricing-table">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#hero" title="onglet acces section hero">Home</a></li>
+                <li><a href="#our-works" title="onglet acces section our-works">Our works</a></li>
+                <li><a href="#pricing-table" title="onglet acces section pricing-table">Pricing</a></li>
+                <li><a href="#contact" title="onglet acces section contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <div class="hero" id="hero">
-            <img src="imgs/logo.png" alt="">
+            <img src="imgs/logo.png" alt="logo entreprise">
             <h2>hello we are liberty <br>we do amazing things every day</h2>
             <button onclick="window.location.href = '#contact'">contact us</button>
         </div>
@@ -83,9 +85,7 @@
                                 <li>custom cloud service</li>
                                 <li>weekly report</li>
                             </ul>
-                            <button class="button_signup">
-                                sign up now
-                            </button>
+                            <button class="button_signup">sign up now</button>
                         </div>
                     </div>
                     <div class="cadre_item">
@@ -183,13 +183,12 @@
         </div>
         <div class="container_reseau_sociaux">
             <ul>
-                <li><a href="https://www.facebook.com"><img src="imgs/facebook.svg" alt=""></a></li>
-                <li><a href="https://www.youtube.fr"> <img src="imgs/youtube.svg" alt=""></a></li>
-                <li><a href="https://www.instagram.com"><img src="imgs/instagram.svg" alt=""></a></li>
+                <li><a href="https://www.facebook.com" title="lien vers site facebook societe"><img src="imgs/facebook.svg" alt=""></a></li>
+                <li><a href="https://www.youtube.fr" title="lien vers site youtube societe"> <img src="imgs/youtube.svg" alt=""></a></li>
+                <li><a href="https://www.instagram.com" title="lien vers site instagram societe"><img src="imgs/instagram.svg" alt=""></a></li>
             </ul>
         </div>
-        </footer>
-        <script src="script/script.js" defer></script>
     </footer>
+    <script src="script/script.js" defer></script>
 </body>
 </html>
