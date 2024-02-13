@@ -1,15 +1,15 @@
 <?php
 
-include --ROOT--."include/protect.php";
+include $_SERVER['DOCUMENT_ROOT']."../include/protect.php";
 
+/*
 require_once --ROOT--."include/connect.php";
 
 $sql = "SELECT * FROM table_book order by book_title ASC";
-$stnt = prepare($sql);
 $stnt = $db -> prepare($sql);
-$stnt = execute();
+$stnt -> execute();
 $recorset = $stnt -> fetchall();
-
+*/
 
 ?>
 <!DOCTYPE html>
@@ -21,15 +21,12 @@ $recorset = $stnt -> fetchall();
 </head>
 <body>
     <table>
-        <?php
-            foreach ($recorset as $row) { ?>
             <tr>
                 <td>
-                    <?php echo htmlspecialchars($row['book_title']);?>  <?php // equivalent echo <?=  ?>
+                    <a href="form.php?npage=1"> acceder au formulaire de recherche </a>
                 </td>
             </tr>
-        <?php } ?>
-    ?>   
+      
     <table>
 </body>
 </html>
