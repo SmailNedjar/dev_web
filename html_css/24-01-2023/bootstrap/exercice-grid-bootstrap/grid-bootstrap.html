@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Bootstrap exercice cols</title>
+    <style>
+      :root{
+        --spacer: 20px;
+      }
+      body {
+        text-align: center;
+      }
+      div {
+        outline: 1px solid #5fac5f80;
+      }
+
+      [class*='container'] {
+        background-color: #feb5f580;
+        padding-top: var(--spacer);
+        padding-bottom: var(--spacer);
+      }
+      [class*='col-'] {
+        background-color: #b6bdfa;
+        min-height: calc(var(--spacer) * 10);
+        padding-top: var(--spacer);
+        padding-bottom: var(--spacer);
+        margin-top: var(--spacer);
+        margin-bottom: var(--spacer);
+      }
+      [class*='col-'] [class*='col-'] {
+        background-color: #8fded3;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container"> 
+        <div class="row justify-content-center">
+            <div class="col-12 order-2 row justify-content-center order-md-1 col-md-6">
+                <div class="col-12 col-md-6 col-xl-4"></div>
+                <div class="col-12 col-md-6 col-xl-4"></div>
+                <div class="col-12 col-md-6 col-xl-4"></div>
+            </div>
+                
+            <div class="col-12 row order-1 order-md-2 col-md-6 justify-content-xl-end align-items-md-start ">
+                <div class="col-12 col-xl-6"></div>
+            </div>
+        </div>
+    </div>
+</body>
