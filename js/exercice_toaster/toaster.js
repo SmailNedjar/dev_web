@@ -24,7 +24,3 @@
      setTimeout (() => {
         newdiv.remove();}, 1500)
  })
-
-
-
-
