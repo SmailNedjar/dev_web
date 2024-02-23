@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <title>Toaster app</title>
+</head>
+
+<body>
+    <button id="btnSuccess" class="btn success cursor_pointer">Success</button>
+    <button id="btnError" class="btn error cursor_pointer">Error</button>
+    <div id="toasterContainer"></div>
+    <script src="toaster.js"></script>
+</body>
+
+
+<style>
+
+    #toasterContainer {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+ 
+    .popup {
+        width: 500px;
+        height: 200px;
+        bottom:10px;
+        right: 10px;
+        margin: 10px 0 10px 0;
+        border-radius: 10px;
+        line-height: 200px;
+        text-align: center;
+        color: white;
+        font-size: 30px;
+        opacity:1;
+        transition: all 1s ease-in-out;
+    }
+
+    .popupSuccess {
+        background-color: blue;
+    }
+
+    .popupError {
+        background-color: red;
+    }
+
+
+    .hidden {
+        opacity: 0;
+        height: 0;
+    }
+</style>
+</html>
