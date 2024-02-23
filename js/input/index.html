@@ -1,12 +1,28 @@
+<!-- Cration d'une todo list -->
+<!-- 1 : Ajout d'element depuis l'input -->
+<!-- 2 : Pouvoir valider l'input -->
+<!-- 3 : Pouvoir associer l'input a une priorité avec le select -->
+<!-- 4 : Faire une colonnes pour chaque priorité  -->
+<!-- 5 : Selon la priorité, ajouter la tache dans la bonne colone -->
 
-<div id="parent">
-<p>nklklkl</p>
-<input type="input" id="input" name="child2">
-<select name="select" id="select">
-    <option value="A">A</option>
-    <option value="B">B</option>
-    <option value="C">C</option>
-</select>
-</div>
+<html lang="en">
 
-<script src="scrypt.js"></script>
+<head>
+    <title>ParentAndChildNode app</title>
+</head>
+
+<body>
+    <div id="parent">
+        <p>Tache</p>
+        <input id="input" name="input" />
+
+        <select id="select" name="select">
+            <option value="urgent">urgent</option>
+            <option value="normal">normal</option>
+            <option value="optionnel">optionnel</option>
+        </select>
+    </div>
+    <script src="scrypt.js"></script>
+</body>
+
+</html>
