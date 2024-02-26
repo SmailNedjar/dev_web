@@ -1,6 +1,6 @@
 <!-- Cration d'une todo list -->
-<!-- 1 : Ajout d'element depuis l'input -->
-<!-- 2 : Pouvoir valider l'input -->
+<!-- 1 : Ajout d'une tache depuis l'input -->
+<!-- 2 : Pouvoir valider la tache -->
 <!-- 3 : Pouvoir associer l'input a une priorité avec le select -->
 <!-- 4 : Faire une colonnes pour chaque priorité  -->
 <!-- 5 : Selon la priorité, ajouter la tache dans la bonne colone -->
@@ -8,7 +8,9 @@
 <html lang="en">
 
 <head>
-    <title>ParentAndChildNode app</title>
+    <title>Todo list</title>
+    <link href="./styles.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -17,12 +19,24 @@
         <input id="input" name="input" />
 
         <select id="select" name="select">
-            <option value="urgent">urgent</option>
-            <option value="normal">normal</option>
             <option value="optionnel">optionnel</option>
+            <option value="normal">normal</option>
+            <option value="urgent">urgent</option>
         </select>
+
+        <div id="array">
+            <div id="URGENT">URGENT</div>
+            <div id="NORMAL">NORMAL</div>
+            <div id="OPTIONNEL">OPTIONNEL</div>
+        </div>
+
     </div>
     <script src="scrypt.js"></script>
 </body>
-
+<style>
+    #array { 
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
 </html>

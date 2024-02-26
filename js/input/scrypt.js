@@ -1,25 +1,41 @@
-const input = document.querySelector('#input');
-const parent = document.querySelector('#parent');
+const input = document.querySelector("#input")
+const select = document.querySelector("#select")
+
+const urgentCol = document.querySelector("#URGENT")
+const normalCol = document.querySelector("#NORMAL")
+const optionnalCol = document.querySelector("#OPTIONNEL")
+
+const tableauDeTache = []
 
 
+input.addEventListener("change", (e) => {
+    const divTache = document.createElement("div")
 
+    divTache.innerHTML = e.target.value;
 
+    divTache.style.cursor = "pointer"
+    divTache.addEventListener("click", () => {
+        if (divTache.style.textDecoration === "line-through") {
+            divTache.style.textDecoration = "unset"
+        } else {
+            divTache.style.textDecoration = "line-through"
+        }
+    })
 
-input.addEventListener('change', (e) => {
-    let newdiv = document.createElement('div');
-    let span = document.createElement('span');
-    let select = document.getElementById('select');
-    let alerte = select.options[select.selectedIndex].value;
-    span.innerHTML = " X " + alerte;
-    newdiv.innerHTML = e.target.value;
+    let colPriority
 
-    parent.append(newdiv);
-    newdiv.append(span);
-    
-    span.addEventListener('click', () => {
-    parent.removeChild(newdiv);
-    });
-    e.target.value="";
-});
+    switch (select.value) {
+        case "optionnel":
+            colPriority = optionnalCol
+            break;
+        case "normal":
+            colPriority = normalCol
+            break;
+        case "urgent":
+            colPriority = urgentCol
+            break;
+    }
 
-
+    colPriority.append(divTache)
+    input.value = ""
+})
