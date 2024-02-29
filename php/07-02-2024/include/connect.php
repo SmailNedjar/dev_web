@@ -1,9 +1,8 @@
 <?php
 
 try {
-    $db = new PDO("mysql:host=localhost;dbname=facturation;charset=utf8", "root", "");
+    $db = new PDO('mysql:host=localhost;dbname=bdshop;charset=utf8', "root", "");
     }catch (PDOException $e) {
-        die("Error: " . $e->getMessage());
+        die("Error: " . $e->getMessage())
     }
-
-    
+        

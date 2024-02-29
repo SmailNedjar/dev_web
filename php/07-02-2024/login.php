@@ -1,17 +1,20 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"]."/include/connect.php";
-if (isset($_POST['login']) && isset($_POST['password'])) {
-    $sql ="select * from table_admin where admin_login =:login";
-    $stnt = $db -> prepare($sql);
-    $stnt -> execute([":login" => $_POST["login"]]);
-    if ($row = $stnt -> fetch()) {
-        if (password_verify($_POST['password'], $row['admin_password'])) {
-            session_start();
-            $_SESSION["user_connexion"] ="ok";
-            header("Location:index.php");
-            exit();
-        }
+
+require = $_SERVER['document'].'/include/connect.php';
+
+if (isset($_POST['login'] && isset($_POST['password']))) {
+$sql = 'SELECT * FROM table_admin WHERE login = :login';
+$sql = $db->$prepare($sql);
+$stnt->$execute(":login", $_POST['login']);
+$stnt = $row->fetchall();
+foreach ($stnt as $row) {
+    if (password_verify($_POST['password'], $row['password)'])) {
+        session_start();
+        $_SESSION["user_connexion"] = "ok";
+        header("Location:index.php");
+        exit();
     }
+}
 }
 ?>
 

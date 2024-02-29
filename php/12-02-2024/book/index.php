@@ -64,7 +64,8 @@ $recorset = $stnt -> fetchall();
             <?php 
                 for ($i = 1; $i <=$total; $i++) { ?>
                     <li><a href="index.php?page=<?= $i; ?>"><?= $i; ?></a></li>
+            <?php } ?>
         </ul>
-        <?php } ?>
+        
 </body>
 </html>

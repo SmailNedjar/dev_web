@@ -1,6 +1,6 @@
 <?php
+include $_SERVER['DOCUMENT'].'/includes/protect.php';
 
-include $_SERVER["DOCUMENT_ROOT"]."/include/protect.php"; // --ROOT -- equivalent $_SERVER["DOCUMENT_ROOT"]//
 
 ?>
 
