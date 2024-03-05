@@ -21,6 +21,6 @@
     newdiv.classList.add('popupError');
     newdiv.classList.add('popup');
     totaster.append(newdiv);
-     setTimeout (() => {
+    setTimeout (() => {
         newdiv.remove();}, 1500)
  })
