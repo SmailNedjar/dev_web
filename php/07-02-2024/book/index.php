@@ -1,24 +1,16 @@
 <?php
-require $_SERVER['DOCUMENT'].'../include/protect.php';
-require $_SERVER['DOCUMENT'].'../include/connect.php';
 
-$nparpage=50;
+include $_SERVER['DOCUMENT_ROOT']."../include/protect.php";
 
-$page= (isset($_GET['page']) && $_GET['page'] >0 ? $_GET['page'] : 1 );
+/*
+require_once --ROOT--."include/connect.php";
 
-$sql = "SELECT count(*) as total FROM table_product";
-$stnt = $db->prepare($sql);
-$stnt->execute();
-$recordset = $stnt->fetch();
+$sql = "SELECT * FROM table_book order by book_title ASC";
+$stnt = $db -> prepare($sql);
+$stnt -> execute();
+$recorset = $stnt -> fetchall();
+*/
 
-$total = ceil($recordset['total']/$nparpage);
-
-
-$sql = "SELECT * FROM table_product order by product_id ASC limit : offset, :limit";
-$sql=$db->prepare($sql);
-$stnt->bindValue(':offset',($page - 1)* $nparpage, PDO::PARAM_INT);
-$stnt->bindValue(':limit',$nparpage, PDO::PARAM_INT);
-$recordset = $stnt->fetchall();   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,37 +21,12 @@ $recordset = $stnt->fetchall();
 </head>
 <body>
     <table>
-        <thead>
-            <tr>
-                <th scope="col">couverture</th>
-                <th scope="col">serie</th>
-                <th scope="col">titre</th>
-                <th scope="col">prix</th>
-                <th scope="col">action</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php foreach($recordset as $row) { ?>
             <tr>
                 <td>
-                    <img src="../upload/product/xs_<?php echo htmlspecialchars($row['product_image']);?>" alt="couverture du livre : <?php echo htmlspecialchars($row['product_name']);?>">
-                </td>
-
-                <td> <?php echo htmlspecialchars($row['product_serie'])?></td>
-                <td> <?= htmlspecialchars($row['product_name'])?></td>
-                <td> <?= htmlspecialchars($row['product_price'])?></td>
-                <td>
-                    <a href="form.php?id=<?= $row['product_id'];?>;">modifier</a>
-                    <a href="delete.php?id= <?= $row['product_id'];?>">effacer</a>
+                    <a href="form.php?npage=1"> acceder au formulaire de recherche </a>
                 </td>
             </tr>
-      <?php }?>
-      </tbody>
+      
     <table>
-        <ul>
-            <?php foreach ($i=1; $i <=$total; $i++) {?>
-                <li> <a href="index.php?page=<?= $i; ?>"> <?= $i; ?></a></li>
-            <?php }?>
-        </ul>
 </body>
 </html>

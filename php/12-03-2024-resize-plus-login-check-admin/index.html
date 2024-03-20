@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+        <button id="btn">click </button>
+        <button id="btn2">click2</button>
+
+        <form action="" method="post">
+            <input type="text" id="login">
+            <div id="msg"></div>
+            <br>
+            <input type="password" id="pwd">
+        </form>
+    
+        <script>
+            document.getElementById("login").addEventListener("change", function (e) {
+                fetch("checkLogin.php?login=" + this.value)
+                    .then(function (response) {
+                        return response.text();
+                    })
+                    .then(function (data) {
+                        document.getElementById("msg").innerText = "";
+                        if (data != "0") {
+                            document.getElementById("msg").innerText = "Login déjà pris";
+                        }
+                });
+            });
+        </script>
+</html>

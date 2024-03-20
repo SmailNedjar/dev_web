@@ -7,10 +7,11 @@
 </head>
 <body>
     <form action="traitement.php" method="POST">
-        <input type="text" name="champs1" id="champs1">
-        <label for="champs1"></label>
-        <input type="text" name="champs2" id="champs2">
-        <label for="champs2"></label>
+        <input type="text" name="champ1" id="champ1">
+        <label for="champ1"></label>
+        <input type="text" name="champ2" id="champ2">
+        <label for="champ2"></label>
+        <input type="hidden" name="form1" value="sent">
         <input type="submit" value="valider">
     </form>
 </body>

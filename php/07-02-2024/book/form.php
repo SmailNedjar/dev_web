@@ -1,26 +1,9 @@
 <?php
-include $_SERVER['DOCUMENT'].'../include/protect.php';
-include $_SERVER['DOCUMENT'].'../include/connect.php';
+include $_SERVER['DOCUMENT_ROOT']."../include/protect.php";
+
+require_once $_SERVER['DOCUMENT_ROOT']."../include/connect.php";
 
 
-
-
-$product_name="";
-$product_id=0;
-$product_serie="";
-$product_type_id=0;
-if (isset($_GET['id'] && $_GET['id'] >0)) {
-    $sql = "SELECT * FROM   table_product where product_id = :product_id";
-    $stnt =$db->prepare($db);
-    $stnt->bindValue(":product_id", $_GET['id'], PDO::PARAM_INT);
-    $stnt->execute();
-    if($recordest=$stnt->fetch()) {
-        $product_name = $recordset['product_name'];
-        $product_serie = $recordset['product_serie'];
-        $product_id = $recordset['product_id'];
-        $product_type_id = $recordset['product_type_id'];
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -40,22 +23,22 @@ if (isset($_GET['id'] && $_GET['id'] >0)) {
     </style>
 </head>
 <body>
-    <form action="process.php" method="post" style=" width:500px; height:80px">
-        <input type="texte" name="product_name"  value="<?= htmlspecialchars($product_name);?>" id="product_name" style=" width:200px; height:30px">
-        <input type="text" name="product_serie" value="<?= htmlspecialchars($product_serie);?>" id="product_serie" style=" width:200px; height:30px">
-        <input type="hidden" name="product_id" value="<?= htmlspecialchars($product_id);?>">
-        <select name="product_type_id" id="product_type_id">
-            <option value="0">selectionnez une reponse </option>
-            <?php
-            $sql = "SELECT * FROM table_type";
-            $stnt=$db->prepare($sql);
-            $stnt->execute();
-            $recordest =$stnt->fetchall();
-            foreach($recordest as $row) {?>
-            <option value="<?= htmlspecialchars($row['type_id']);?>" <?= $row['type_id']==$product_type_id ? "selected" : "";?>> <?php echo htmlspecialchars($row['type_name']);?></option>
-            <?php }?>
-        </select>
+    <form action="process.php" method="get" style=" width:500px; height:80px">
+        <input type="texte" name="critere1" style=" width:200px; height:30px">
         <input type="submit" value="envoyer">
     </form>  
+     
+    <ul>
+        <li><a href="form.php?npage=1">1</a></li>
+        <li><a href="form.php?npage=2">2</a></li>
+        <li><a href="form.php?npage=3">3</a></li>
+        <li><a href="form.php?npage=4">4</a></li>
+        <li><a href="form.php?npage=5">5</a></li>
+        <li><a href="form.php?npage=6">6</a></li>
+        <li><a href="form.php?npage=7">7</a></li>
+        <li><a href="form.php?npage=8">8</a></li>
+        <li><a href="form.php?npage=9">9</a></li>
+        <li><a href="form.php?npage=10">10</a></li>
+    </ul>
 </body>
 </html>
