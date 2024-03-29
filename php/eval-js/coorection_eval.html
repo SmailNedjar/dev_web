@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="msg"></div>
+    <form action="" method="post" id="form">
+        <input type="password" id="pwd"><button id="btn"> voir  </button>
+        <input type="password" id="pwd2"><button id="btn2">voir </button>
+        <input type="submit">
+    </form>
+</body>
+
+<script>
+
+    document.getElementById("form").addEventListener("submit", function(e){
+
+        if (document.getElementById("pwd").value !== document.getElementById("pwd2").value) {
+            e.preventDefault();
+            document.getElementById("msg").innerText = "mot de passe different";
+        }
+    })
+
+    document.getElementById("btn").addEventListener("click", function() {
+        if (document.getElementById("pwd").type="password") {
+            document.getElementById("pwd").type="text";
+        }
+        else {
+            document.getElementById("pwd").type="password";
+        }
+
+    })
+    document.getElementById("btn2").addEventListener("click", function() {
+        if (document.getElementById("pwd2").type="password") {
+            document.getElementById("pwd2").type="text";
+        }
+        else {
+            document.getElementById("pwd2").type="password";
+        }
+
+    })
+</script>
+</html>
