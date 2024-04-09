@@ -3,7 +3,7 @@
 include $_SERVER['DOCUMENT'].'../includes/protect.php';
 include $_SERVER['DOCUMENT'].'../includes/connect.php';
 
-if (isset($_GET['page'])) ? $_GET['page'] : 1;
+if (isset($_GET['page'])? $_GET['page'] : 1);
 
 $page= $_GET['page'];
 $nbparpage = 50;
@@ -47,7 +47,7 @@ $recordset=$stnt->fetchall();
             <tbody>
                 <?php foreach ($recordset as $row) { ?>
                     <tr>
-                        <td><img src="../../upload/product/xs_<?php= $row['product_image'];?>" alt="image couverture de : <?= $row['product_name'];?>"></td>
+                        <td><img src="../../upload/product/xs_<?= $row['product_image'];?>" alt="image couverture de : <?= $row['product_name'];?>"></td>
                         <td><?= $row['product_serie'];?>"> </td>
                         <td><?php echo htmlspecialchars($row['product_name']);?></td>
                         <td><?= htmlspecialchars($row['product_price']);?></td>
@@ -57,7 +57,7 @@ $recordset=$stnt->fetchall();
         </table>
 
         <?php
-        foreach ($i=0; $i<$total; $i++) { ?>
+        for ($i=0; $i<$total; $i++) { ?>
             <a href="index.php?page=<?= $i; ?>"> <?php echo $i; ?></a>
             <?php } ?>
 </body>
