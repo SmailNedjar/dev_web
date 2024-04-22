@@ -6,6 +6,5 @@
     $stmt->execute([":login"=>$_GET['login']]);
     $row = $stmt->fetch();
     echo $row['total'];
-  }
-  
+  }; 
 ?>
