@@ -1,0 +1,41 @@
+<form class="formulaire" (ngSubmit)="onSubmit()" [formGroup]="formulaire">
+    <mat-form-field>
+        <mat-label>Nom</mat-label>
+      <input matInput placeholder="Ex : expresso" formControlName="nom">
+
+      @if(formulaire.get('nom')?.hasError('required')) {
+        <mat-error>le champs est obligatoire</mat-error>
+      }
+      @if(formulaire.get('nom')?.hasError('minlength')) {
+        <mat-error>le nom doit avoir 3 caracteres au minimum</mat-error>
+      }
+      @if(formulaire.get('nom')?.hasError('maxlength')) {
+        <mat-error>le nom doit avoir 100 caracteter maximum</mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Ex : description du café ..." formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Prix</mat-label>
+      <input matInput [min]="prixMinium" type="number" formControlName="prix" >
+      @if(formulaire.get('prix')?.hasError('required')) {
+        <mat-error>le champs est obligatoire</mat-error>
+      }
+      @if(formulaire.get('prix')?.hasError('min')) {
+        <mat-error>le prix doit etre positif</mat-error>
+      }
+    </mat-form-field>
+
+
+    <div style="display: flex; align-items: center;">
+    <input #selecteurFichier type="file" style="display: none;" (change)="onFichierSelectionee($event)">
+    <button mat-mini-fab color="primary" (click)="selecteurFichier.click()" type="button">
+      <mat-icon >attach_file</mat-icon>
+    </button>
+    <span style="margin-left: 0.5em;">{{this.FichierSelectione ? this.FichierSelectione.name: "aucun fichier selectionne"}}</span>
+    </div>
+
+    <button mat-raised-button color="primary">ajouter l'article</button>
+  </form>
