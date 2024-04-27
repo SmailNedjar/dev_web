@@ -1,0 +1,23 @@
+<form class="formulaire" (ngSubmit)="onConnexion()" [formGroup]="formulaire">
+
+<mat-form-field>
+    <mat-label>email</mat-label>
+    <input matInput placeholder="john doe" formControlName="email">
+    @if(formulaire.get('email')?.hasError('required')) {
+      <mat-error>l'email est obligatoire</mat-error>
+    }
+    
+    @if(formulaire.get('email')?.hasError('email')) {
+      <mat-error>l'email au mauvais format</mat-error>
+    }
+  </mat-form-field>
+
+<mat-form-field>
+    <mat-label>mot de passe</mat-label>
+    <input matInput type="password" formControlName="password">
+    <mat-error>le mot de passe est obligatoire</mat-error>
+  </mat-form-field>
+
+
+<button mat-raised-button color="primary" type="submit">se connecter</button>
+</form>

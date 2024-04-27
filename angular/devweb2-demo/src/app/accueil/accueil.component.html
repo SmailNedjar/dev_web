@@ -1,0 +1,37 @@
+<ul>
+<div class="container">
+    <button mat-raised-button color="primary" routerLink="/ajout_article">ajouter article</button>
+    <div class="row">
+        @for (article of listearticles; track $index) {
+        <div class="col-6">
+            <mat-card class="mt-4">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>{{article.nom}}</mat-card-title>
+                  <mat-card-subtitle>{{article.prix}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="http://localhost/backend_angular/uploads/{{article.image}}" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p class="my-4 ">
+                    {{article.description}}
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-flat-button color="primary">
+                        <mat-icon>add_shopping_cart</mat-icon>ajouter au panier
+                    </button>
+                    <button mat-button color="accent" [routerLink]="['/modifier_article', article.id]">
+                        <i class="fa-solid fa-pencil"></i>
+                        modifier
+                    </button>
+                  <button mat-button color="warm" (click)="onSuppressionArticle(article.id)">supprimer</button>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+    }
+    </div>
+
+</div>
+    
+
+       

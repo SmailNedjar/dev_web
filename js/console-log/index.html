@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+    <p></p>
+    <div id="test"></div>
+    <button id="btn">valider</button>
+</body>
+
+<script>
+
+    /*code asynchron
+    console.log(1);
+    setTimeout(() => console.log(2), 1000) 
+    console.log(3);*/
+
+
+   
+    document.getElementById("btn").addEventListener("click", () => {
+        fetch("script.html").then(function(response) {
+        return response.text();
+    }).then(function(data) {
+        document.getElementById("test").innerHTML =data;
+    })
+    });
+
+</script>
+</html>

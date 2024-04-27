@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEDJAR Smail</title>
+</head>
+<style> 
+.formulaire {
+    display: flex;
+}
+#password, #password_confirmation {
+    width: 300px;
+    height: 25px;
+}
+button {
+    height: 30px;
+}
+form {
+    width: 340px;
+}
+</style>
+<body>
+    <h1>NEDJAR Smail</h1>
+    <div class="formulaire">
+        <form action="" method="POST">
+            <label for="password">veuillez saisir mot de passe</label><br/>
+            <input type="password" name="password" id="password"><br/>
+            <label for="password_confirmation">veuillez saisir a nouveau le meme mot de passe</label><br/>
+            <input type="password" name="password_confirmation" id="password_confirmation"><br/>
+            <input type="submit" value="valider" id="valider">
+        </form>
+        <div><br/>
+            <button id="voir_mdp">voir mot de passe</button><br/><br/>
+            <button id="voir_mdp_confirmation">voir mot de passe de  confirmation</button>
+        </div>
+    </div>
+</body> 
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("password_confirmation").addEventListener("input", function() {
+            let password = document.getElementById("password").value;
+            let password_confirmation = this.value;
+            let message_erreur= document.getElementById("message_erreur");
+
+        if (password_confirmation !== password) {
+            if (!message_erreur) {
+                message_erreur = document.createElement('span');
+                message_erreur.id= "message_erreur";
+                message_erreur.innerText= "les mots de passes ne sont pas identique";
+                document.body.prepend(message_erreur);
+                document.getElementById("valider").disabled=true;
+            }
+            
+        }
+        else {
+                message_erreur.innerText="";
+                message_erreur.remove();
+                document.getElementById("valider").disabled=false;
+
+            }
+        });
+
+
+        document.getElementById("voir_mdp").addEventListener("click", function(){
+            let voir_mdp= document.getElementById("password");
+
+            if (voir_mdp.getAttribute("type")=="password") {
+                voir_mdp.setAttribute("type", "text ");
+            }
+            else {
+                voir_mdp.setAttribute("type", "password");
+            }
+    });
+    document.getElementById("voir_mdp_confirmation").addEventListener("click", function(){
+            let voir_mdp_confirmation= document.getElementById("password_confirmation");
+
+            if (voir_mdp_confirmation.getAttribute("type")=="password") {
+                voir_mdp_confirmation.setAttribute("type", "text ");
+            }
+            else {
+                voir_mdp_confirmation.setAttribute("type", "password");
+            }
+    });
+});
+</script>
+</html>

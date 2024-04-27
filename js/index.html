@@ -1,0 +1,36 @@
+<html lang="en">
+
+<head>
+    <title>Counter app</title>
+</head>
+
+<body>
+    <div id="counterDisplay">1</div>
+    <button id="button">Increments</button>
+    <button id="button2">Decrements</button>    
+</body>
+
+
+<script>
+// Selectionner bouton
+
+let button = document.getElementById("button");
+let button2 = document.getElementById("button2");
+let compteur = document.getElementById("counterDisplay");
+
+// Selectionner counter
+button.addEventListener("click",() => {
+    let i = parseInt(compteur.innerHTML);
+    compteur.innerHTML = i +1 ;
+});
+button2.addEventListener("click",() => {
+    let i = parseInt(compteur.innerHTML);
+    compteur.innerHTML= i - 1;
+});
+
+
+// Event click => incremente la valeur + update value
+
+</script>
+
+</html>
