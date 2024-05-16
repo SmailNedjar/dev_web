@@ -1,0 +1,15 @@
+{
+    "name": "tierlist/dev2-package",
+    "description": "angular tri liste",
+    "type": "project",
+    "license": "me*",
+    "authors": [
+        {
+            "name": "yes"
+        }
+    ],
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.9"
+    }
+    
+}

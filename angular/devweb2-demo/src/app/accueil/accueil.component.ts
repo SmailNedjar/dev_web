@@ -27,11 +27,21 @@ export class AccueilComponent {
   }
 
   refreshListeArticle() {
-    this.http
-     .get<Article[]>('http://localhost/backend_angular/articles.php')
-     .subscribe((resultat) => this.listearticles = resultat);
-  }
+    const jwt = localStorage.getItem("jwt");
 
+    if (jwt != null) {
+    this.http
+     .get<Article[]>('http://localhost/backend_angular/articles.php', 
+     {
+      headers: {Authorization:jwt}
+    }
+  )
+     .subscribe((resultat) => this.listearticles = resultat);
+  }else {
+
+    alert ("vous n'etes pas connecté");
+  }
+  }
 
   onSuppressionArticle(idArticle? : number) {
     this.http.delete('http://localhost/backend_angular/supprimer_article.php?id='+ idArticle)

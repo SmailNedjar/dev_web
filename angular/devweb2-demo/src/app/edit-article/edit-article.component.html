@@ -30,12 +30,29 @@
 
 
     <div style="display: flex; align-items: center;">
+
+      @if(urlimage) {
+        <img style = "width:100px; object-fit:cover" src="http://localhost/backend_angular/uploads/{{urlimage}}" alt=""/>
+        
+      }
+      @if(miniature) {
+        <img style = "width:100px; object-fit:cover" [attr.src]="miniature" alt=""/>
+        
+      }
+      @if (urlimage || FichierSelectione) {
+        <button mat-mini-fab color="warn" (click)="onSuppressionImage()" type="button">
+          <mat-icon>delete</mat-icon>
+        </button>
+      }
+    
+  
+
     <input #selecteurFichier type="file" style="display: none;" (change)="onFichierSelectionee($event)">
     <button mat-mini-fab color="primary" (click)="selecteurFichier.click()" type="button">
       <mat-icon >attach_file</mat-icon>
     </button>
-    <span style="margin-left: 0.5em;">{{this.FichierSelectione ? this.FichierSelectione.name: "aucun fichier selectionne"}}</span>
+    <span style="margin-left: 0.5em;">{{this.FichierSelectione ? this.FichierSelectione.name: urlimage ? "modifier le fichier" : "aucun fichie selectionne"}}</span>
     </div>
 
-    <button mat-raised-button color="primary">ajouter l'article</button>
+    <button mat-raised-button color="primary" type="submit"> {{id==null ? "ajouter article" : "modifier article" }}</button>
   </form>

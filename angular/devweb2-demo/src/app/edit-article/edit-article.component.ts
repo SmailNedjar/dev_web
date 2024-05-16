@@ -31,17 +31,24 @@ export class EditArticleComponent {
     prix : [1,[Validators.required, Validators.min(this.prixMinium) ]],
   }
   );
+id:number | null = null;
+urlimage : string | null  = null;
+imageSupprime : boolean = false;
+miniature : string | null = null;
 
 ngOnInit() {
    this.route.params.subscribe((ParametreUrl) => {
     if (ParametreUrl['id']) {
       if(!isNaN(ParametreUrl['id'])) {
-        const id:number = ParametreUrl['id'];
+        this.id= ParametreUrl['id'];
 
         this.http.get<Article>(
-          `http://localhost/backend_angular/article.php?id=${id}`
+          `http://localhost/backend_angular/article.php?id=${this.id}`
         )
-        .subscribe((article) => this.formulaire.patchValue(article));
+        .subscribe((article) => {
+          this.formulaire.patchValue(article)
+          this.urlimage= article.image;
+        });
       }else {
         alert(ParametreUrl['id'] + " n'est pas un identifiant valide")
       }   
@@ -52,16 +59,31 @@ ngOnInit() {
 }
   onSubmit() {
     if (this.formulaire.valid) {
-      const donnees: FormData = new FormData();
 
-      donnees.append('article', JSON.stringify(this.formulaire.value));
+      const jwt = localStorage.getItem("jwt");
+
+      if(jwt!=null) {
+
+      const donnees: FormData = new FormData();
+      const article = this.formulaire.value;
+      article.imageSupprime = this.imageSupprime;
+
+      donnees.append('article', JSON.stringify(article));
 
       if(this.FichierSelectione) {
         donnees.append('image', this.FichierSelectione);
       }
+      
+
+      const url = this.id == null 
+      ? `http://localhost/backend_angular/ajout_article.php`
+      : `http://localhost/backend_angular/modifier_article.php?id=${this.id}`;
+
+
       this.http
-        .post(
-          'http://localhost/backend_angular/ajout_article.php', donnees
+        .post(url, donnees,    {
+          headers: {Authorization:jwt}
+        }
         )
         .subscribe({
           next: (resultat) => this.router.navigateByUrl('/accueil'),
@@ -69,10 +91,33 @@ ngOnInit() {
         });
     }
   }
+  }
 
   onFichierSelectionee(evenement :any){
     this.FichierSelectione= evenement.target.files[0];
+    this.urlimage =null;
+    evenement.target.value =null;
 
+    if (this.FichierSelectione != null) {
+    let reader = new FileReader();
+
+    reader.onload = (e :any) => {
+    this.miniature=e.target.result;
+  };
+  reader.readAsDataURL(this.FichierSelectione);
+  }
+}
+
+  
+  onSuppressionImage() {
+
+    if(this.urlimage!=null){
+      this.imageSupprime = true;
+
+    }
+    this.urlimage =null;
+    this.FichierSelectione = null;
+    this.miniature = null;
 
   }
 }
